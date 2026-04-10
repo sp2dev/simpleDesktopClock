@@ -10,63 +10,125 @@
 
 
 <!--卡片栏-->
-    <LinearLayout
+    <ScrollView
         android:id="@+id/card_list"
         android:layout_width="0dp"
-        app:layout_constraintHorizontal_weight="2"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:padding="30dp"
+        app:layout_constraintHorizontal_weight="3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/control_bar"
+        android:scrollbars="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/navigate_image">
 
-
-        <TextClock
-            android:id="@+id/time_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:format12Hour="HH:mm:ss a"
-            android:format24Hour="HH:mm:ss"
-            android:textSize="70sp"
-            android:timeZone="GMT+8:00"
-            android:textFontWeight="500"/>
-        <TextClock
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:timeZone="GMT+8:00"
-            android:format12Hour="yyyy-MM-dd"
-            android:textSize="40sp"/>
-
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_card">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:padding="30dp">
+
+
+<!--            时间日期-->
+            <TextClock
+                android:id="@+id/time_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format12Hour="HH:mm:ss a"
+                android:format24Hour="HH:mm:ss"
+                android:textFontWeight="500"
+                android:textSize="70sp"
+                android:timeZone="GMT+8:00" />
+            <TextClock
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format12Hour="yyyy-MM-dd"
+                android:textSize="40sp"
+                android:timeZone="GMT+8:00" />
+
+        <!--具体卡片-->
+        <!--音乐-->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:padding="10dp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/musicTitle"
-                    android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/bg_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="30dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:text="音乐"/>
-                <ImageView
-                    android:layout_width="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="音乐"
+                        android:textSize="30sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="50sp"
+                        android:textStyle="bold"
+                        android:text="未在播放"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="20dp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/xubiaoshi"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+        <!--天气-->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/bg_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/xubiaoshi"
-                    app:layout_constraintTop_toBottomOf="@id/musicTitle"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    android:padding="10dp">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="天气"
+                        android:textSize="30sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="50sp"
+                        android:textStyle="bold"
+                        android:text="多云"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="20dp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/cloudy"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
     <ImageView
